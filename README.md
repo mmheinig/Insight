@@ -5,28 +5,28 @@ My Insight Data Science project was a consulting project for a Candian bank. I w
 
 The initial data (masked_transactions_with_year_of_birth.csv) consisted of over 550,000 transactional records and had the following data fields:
 
-anonymized_user_id:	A unique user identifier that has been masked.
-year_of_birth: user's year of birth
-transaction_id:  	A unique transaction identifier that has been masked.
-authorization_timestamp:	The time at which the purchase was authorized by the user; i.e. the time at which the purchase was made at the merchant terminal.
-settle_timestamp:	The time at which the purchase was finalized; i.e. A gas station purchase settling for the final amount
-transaction_code:	Type of transaction. Description of codes:
-      0	None
-      1	Authorization
-      2	Refund
-      3	Force Post Settle-Could not match to an Auth
-      4	Purchase with PIN
-      5	Reversal-Credit Account
-      6	ATM Withdrawal
-      7	Debit or Credit Adjustment
-      8	Pre-auth completion
-amount:	Dollar value of the transaction
-merchant_id:	A unique identifier fro each merchant
-merchant_details:	Text description of the merchant
-merchant_name:	Normalized version of the merchant details
-mcc_code:	Industry standard Merchant Category Code
-mcc_description:	Text describing the MCC code
-koho_category:	Category assgined by Koho's internal system
+      anonymized_user_id:	A unique user identifier that has been masked.
+      year_of_birth: user's year of birth
+      transaction_id:  	A unique transaction identifier that has been masked.
+      authorization_timestamp:	The time at which the purchase was authorized by the user; i.e. the time at which the purchase was made at the merchant terminal.
+      settle_timestamp:	The time at which the purchase was finalized; i.e. A gas station purchase settling for the final amount
+      transaction_code:	Type of transaction. Description of codes:
+             0	None
+             1	Authorization
+             2	Refund
+             3	Force Post Settle-Could not match to an Auth
+             4	Purchase with PIN
+             5	Reversal-Credit Account
+             6	ATM Withdrawal
+             7	Debit or Credit Adjustment
+             8	Pre-auth completion
+      amount:	Dollar value of the transaction
+      merchant_id:	A unique identifier fro each merchant
+      merchant_details:	Text description of the merchant
+      merchant_name:	Normalized version of the merchant details
+      mcc_code:	Industry standard Merchant Category Code
+      mcc_description:	Text describing the MCC code
+      koho_category:	Category assgined by Koho's internal system
 
 
 At a quick glance, here are the other files in the repository & what they are. (For more information about the steps of this project, please see below.)
