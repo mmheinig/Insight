@@ -31,9 +31,11 @@ koho_category:	Category assgined by Koho's internal system
 
 At a quick glance, here are the other files in the repository & what they are. (For more information about the steps of this project, please see below.)
 
-frequenttraveler_project.py: all of my code. (Includes some R code for making visualizations of the networks at the bottom of the file)
+df_travel: the final set of travel transactions that was used for the project
 
 edgelist_travel_mcccode_usrcount_withnames_asdf.csv: final edge list from merchants being defined my mcc code & the weight defined as usercount. Since the merchants are simply numbers, I also added their mcc_description for informational purposes.
+
+frequenttraveler_project.py: all of my code. (Includes some R code for making visualizations of the networks at the bottom of the file)
 
 nodes_travel_mcccode_usrcount.csv: final node list & their attributes. Attributes include:
         
@@ -47,6 +49,7 @@ nodes_travel_mcccode_usrcount.csv: final node list & their attributes. Attribute
         eigenvector_centrality: measures the influence of that node in the network
         neighbors: list of the other nodes that node connected to
           
+travel_category.csv: list of mcc codes & descriptions for which a travel_category was manually added based on description
 
 
 The first step was data prep, which included restricting the transactions to "transaction_code == 1", as the focus was on authorized transactions. Next was some data clean up, which produced "df_all.csv". From this file, the remainder of the work completed, such as removing non-ASCII characters, the addition of some fields, etc. (Although it was not utilized in the analysis, df_all could be split up into weekday data (for transactions that occurred Monday - Friday) and weekend data (transactions occuring on Saturday and Sunday); see "df_weekday" and "df_weekend". And finally, from df_all, the data was restricted to travel transactions. 
