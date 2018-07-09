@@ -298,7 +298,7 @@ df_all.to_csv('df_all.csv', index=False)
 ##################################################################
 ##################################################################
 #read in the data. Note there is already an index column in csv (hence index_col=False)
-df_all = pd.read_csv('df_travel.csv', encoding='latin', low_memory=False)
+df_all = pd.read_csv('df_all.csv', encoding='latin', low_memory=False)
 
 df_trav = df_all[df_all['koho_category'] == 'Travel']
 df_other = df_all[df_all['koho_category'] == 'Other']
