@@ -120,20 +120,21 @@ def create_edgelist(data, weight):
 
     elif weight == 'joshwt':
         for u in range(start, stop):
-        y = data[data['user'] == u]
-        y = y.sort_values(by=[node_category])
-        x = y[node_category].value_counts()
-        z = list(combinatorial(y[node_category]))
-        z = remove_selfloops(z)
-        for i in range(0,len(z)):
-            for item in z[i]:
-                counter.append(x[item])
-            if counter[0] == counter[1]:
-                weights.append(round(counter[0],2))
-            else:
-                weights.append(round(max(counter)/abs(counter[0]-counter[1]),2))
-            counter = []
-        edges = edges + z
+            y = data[data['user'] == u]
+            y = y.sort_values(by=[node_category])
+            x = y[node_category].value_counts()
+            z = list(combinatorial(y[node_category]))
+            z = remove_selfloops(z)
+            for i in range(0,len(z)):
+                for item in z[i]:
+                    counter.append(x[item])
+                if counter[0] == counter[1]:
+                    weights.append(round(counter[0],2))
+                else:
+                    weights.append(round(max(counter)/abs(counter[0]-counter[1]),2))
+                counter = []
+            edges = edges + z
+
         edgesandwts = list(zip(edges, weights))
         edgesandwts = sorted(edgesandwts,key=itemgetter(0))
         edgesandwts_dedupe = list(dedupe(edgesandwts)) #gets rid of duplicate edges and adds their weights
@@ -342,8 +343,8 @@ edgelist_travel.sort(key=operator.itemgetter(2), reverse=True)
 
 # create node DB (to be filled with node attributes later)
 nodes_travel = df_travel.copy()
-nodes_travel = nodes_travel_mcccode_usrcount.drop_duplicates(node_category)
-nodes_travel = nodes_travel_mcccode_usrcount.drop(columns = ['merchant_id', 'merchant_details', 'merchant_name', 'index', 'user', 'age', 'date', 'weekday', 'amount', 'user_numofpurchases',  'transaction_code', 'authorization_timestamp'])
+nodes_travel = nodes_travel.drop_duplicates(node_category)
+nodes_travel = nodes_travel.drop(columns = ['merchant_id', 'merchant_details', 'merchant_name', 'index', 'user', 'age', 'date', 'weekday', 'amount', 'user_numofpurchases',  'transaction_code', 'authorization_timestamp'])
 # size = 142
 
 # Create a dictionary for nodes & mcc_code (this is for R later on)
@@ -386,7 +387,7 @@ modularity_travel = mod(communities_travel)  # <-- lets you look at each communi
 
 # degree
 degree_dict_travel = dict(T.degree(T.nodes()))
-nx.set_node_attributes(T, degree_dict, 'degree')
+nx.set_node_attributes(T, degree_dict_travel, 'degree')
 nodes_travel['degree'] = nodes_travel[node_category].map(degree_dict_travel)
 nodes_travel['degree'].fillna(0, inplace=True)  # < -- to deal with isolated nodes (degree = 0)
 
