@@ -58,3 +58,6 @@ To create a network, the merchants from the travel data became the nodes of the 
 
 From the edgelist, I used NetworkX to create the graph that I could perform the analysis on. The analysis began with generating node attributes: Louvain Community detection, degree, betweenness centrality, closeness centrality, eigenvector centrality, & list of neighbors.
 
+
+For visualization of the network, I used R (visNetwork) and created an interactive shiny web application. Please see my other repository "FrequentTraveler" for more information (& code) about the visualzation and the application.
+
