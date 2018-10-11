@@ -471,7 +471,6 @@ v1 <- visNetwork(nodes, edges, height = "700px", width = "100%") %>%
     visOptions(selectedBy = "group",
                highlightNearest = TRUE,
                nodesIdSelection = TRUE) %>%
-               n
     visPhysics(stabilization = FALSE, maxVelocity = 3)
 frameWidget(v1)
 
